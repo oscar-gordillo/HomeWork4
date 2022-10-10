@@ -69,9 +69,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 if (found) {
                     val intent = Intent()
-                    intent.data= Uri.parse("mailto:")
+                    intent.data= Uri.parse("mailto:$mail?subject=Password&body=$password")
                     intent.action = Intent.ACTION_SENDTO
-                    intent.type = "text/plain"
+                    //intent.type = "text/plain"
                     intent.putExtra(Intent.EXTRA_TEXT, password)
                     intent.putExtra(Intent.EXTRA_SUBJECT, "Forgot Password?");
                     intent.putExtra(Intent.EXTRA_EMAIL, mail)
