@@ -1,6 +1,7 @@
 package com.example.homework4
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -68,10 +69,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 if (found) {
                     val intent = Intent()
-                    intent.action = Intent.ACTION_SEND
+                    intent.data= Uri.parse("mailto:")
+                    intent.action = Intent.ACTION_SENDTO
                     intent.type = "text/plain"
                     intent.putExtra(Intent.EXTRA_TEXT, password)
                     intent.putExtra(Intent.EXTRA_SUBJECT, "Forgot Password?");
+                    intent.putExtra(Intent.EXTRA_EMAIL, mail)
                     startActivity(intent)
                 }else {
                     Toast.makeText(this, "The e-mail is not registered", Toast.LENGTH_LONG).show()
